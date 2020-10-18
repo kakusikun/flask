@@ -1,6 +1,7 @@
-import { websocket } from "./ws.js"
+import { connectCamera } from "./ws.js"
 
 $(document).ready(function () {
-    websocket(ip, port);
+    connectCamera(ip, port, 1, dummyImgSrc);
+    connectCamera(ip, port, 2, dummyImgSrc);
     
 });
