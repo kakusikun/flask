@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, 'C:\\Users\\oo245\\Documents\\flask-practice')
+sys.path.insert(0, '/home/acer/Documents/flask-practice')
 from video_stream import create_app
 
 
