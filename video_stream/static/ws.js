@@ -24,19 +24,23 @@ function connectCamera(ip, port, index, dummyImgSrc){
     });
     
     socket.on('stream', function(msg){
-        $(streamId).attr("src", msg.data);
+        if (msg.status === false){
+            $(waitId).fadeIn("fast");
+        } else {
+            $(streamId).attr("src", msg.data);
+        }
     });
     
     $(streamId).click(function(){
         clearInterval(stream);
-        $(waitId).slideDown();
+        $(waitId).fadeIn("fast");
     });
 
     $(waitId).click(function(){
         stream = setInterval(function(){ 
             socket.emit('stream', {data: 'stream'});
         }, 40);
-        $(this).slideUp();
+        $(this).fadeOut("slow");
     });
 
     return socket;
